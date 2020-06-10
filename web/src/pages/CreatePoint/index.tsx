@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import { Map, TileLayer, Marker } from 'react-leaflet';
+import api from '../../services/api';
 import './styles.css';
 import logo from '../../assets/logo.svg'
+import { response } from 'express';
 
+interface Item {
+    id: number;
+    title: string;
+    image_url: string;
+}
 
 const CreatePoint = () => {
+    const [items, setItems] = useState<Item[]>([]);
+
+    useEffect(() => {
+        api.get('items').then(response => {
+            setItems(response.data);
+        });
+    }, []);
+
     return (
         <div id="page-create-point" >
             <header>
@@ -60,6 +76,15 @@ const CreatePoint = () => {
                         <span> Selecione o endereço no mapa </span>
                     </legend>
 
+                    <Map center={[-10.1689, -48.3317]} zoom={15}>
+                        <TileLayer
+                            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+
+                        <Marker position={[-10.1689, -48.3317]} />
+                    </Map>
+
                     <div className="field-group">
                         <div className="field">
                             <label htmlFor="uf"> Estado (UF) </label>
@@ -83,36 +108,12 @@ const CreatePoint = () => {
                     </legend>
 
                     <ul className="items-grid">
-                        {/* Item 1 */}
-                        <li>
-                            <img src="http://localhost:3333/uploads/lampadas.svg" alt="Lâmpadas" />
-                            <span> Lâmpadas </span>
-                        </li>
-                        {/* Item 2 */}
-                        <li>
-                            <img src="http://localhost:3333/uploads/baterias.svg" alt="Pilhas e Baterias" />
-                            <span> Pilhas e Baterias </span>
-                        </li>
-                        {/* Item 3 */}
-                        <li>
-                            <img src="http://localhost:3333/uploads/papeis-papelao.svg" alt="Papéis e Papelão" />
-                            <span> Papéis e Papelão </span>
-                        </li>
-                        {/* Item 4 */}
-                        <li>
-                            <img src="http://localhost:3333/uploads/eletronicos.svg" alt="Resíduos Eletrônicos" />
-                            <span> Resíduos Eletrônicos </span>
-                        </li>
-                        {/* Item 5 */}
-                        <li>
-                            <img src="http://localhost:3333/uploads/organicos.svg" alt="Resíduos Orgânicos" />
-                            <span> Resíduos Orgânicos </span>
-                        </li>
-                        {/* Item 6 */}
-                        <li>
-                            <img src="http://localhost:3333/uploads/oleo.svg" alt="Óleo de Cozinha" />
-                            <span> Óleo de Cozinha </span>
-                        </li>
+                        {items.map(item => (
+                            <li key={item.id}>
+                                <img src={item.image_url} alt={item.title} />
+                                <span> {item.title} </span>
+                            </li>
+                        ))}
                     </ul>
                 </fieldset>
 
