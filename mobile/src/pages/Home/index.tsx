@@ -1,33 +1,43 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons';
+import { Feather as Icon } from '@expo/vector-icons';
 import { View, ImageBackground, Image, Text, StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+    const navigation = useNavigation();
+
+    function handNavigationToPoints() {
+      navigation.navigate('Points');
+    }
+
     return  (
         <ImageBackground 
           source={require('../../assets/home-background.png')} 
           style={styles.container}
           imageStyle={{ width: 274, height: 368 }}
           >
-            <View style={styles.main} >
-              <Image source={require('../../assets/logo.png')} />
-              <Text style={styles.title}>Seup marketplace de coleta de resíduos</Text>
-              <Text style={styles.description}>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</Text>
-            </View>
-            <View style={styles.footer}>
-              <RectButton style={styles.button} onPress={() => {}}>
+          <View style={styles.main} >
+            <Image source={require('../../assets/logo.png')} />
+            <Text style={styles.title}>Seup marketplace de coleta de resíduos</Text>
+            <Text style={styles.description}>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</Text>
+          </View>
+
+          <View style={styles.footer}>
+            <RectButton style={styles.button} onPress={handNavigationToPoints}>
+
                 <View style={styles.buttonIcon}>
                   <Text>
-                    <Feather name="arrow-right" size={24} color="black" />
+                    <Icon name="arrow-right" color="#FFF" size={24} />
                   </Text>
                 </View>
 
                 <Text style={styles.buttonText}>
                   Entrar
                 </Text>
-              </RectButton>
-            </View>
+
+            </RectButton>
+          </View>
         </ImageBackground>
     );
 };
@@ -36,7 +46,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       padding: 32,
-      backgroundColor: '#f0f0f5'
     },
   
     main: {
