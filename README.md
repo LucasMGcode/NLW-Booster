@@ -1,35 +1,36 @@
  <!-- NLW-Booster -->
-# Next Level Week RocketSeat.
-## :green_heart: :recycle: Ecoleta
+# :recycle: Next Level Week RocketSeat.
+## :green_heart: Ecoleta
+## Made in National Ecology Week
 ## Study and training material.
 
 
 
 #### **Web (React + TypeScript):**
-- axios <br> 
-- react dropzone <br> 
-- react icons <br> 
-- react leaflet <br> 
-- react router dom <br>
+- [axios](https://github.com/axios/axios)
+- [react dropzone](https://github.com/enyo/dropzone)
+- [react icons](https://github.com/react-icons/react-icons)
+- [react leaflet](https://github.com/PaulLeCam/react-leaflet)
+- [react router dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
 
 #### **Server (NodeJS + TypeScript):**
-- celebrate <br> 
-- cors <br> 
-- dotenv <br> 
-- express <br> 
-- joi <br> 
-- knexjs <br> 
-- multer <br> 
-- sqlite <br> 
-- ts-node <br>
+- [celebrate](https://github.com/arb/celebrate)
+- [cors](https://expressjs.com/en/resources/middleware/cors.html)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [express](https://expressjs.com/)
+- [joi](https://github.com/hapijs/joi)
+- [knexjs](http://knexjs.org/)
+- [multer](https://github.com/expressjs/multer)
+- [sqlite](https://github.com/mapbox/node-sqlite3)
+- [ts-node](https://github.com/TypeStrong/ts-node)
 
 #### **Mobile (React Native + TypeScript):**
-- expo <br> 
-- expo constants <br> 
-- expo google fonts <br> 
-- expo location <br>
-- expo mail composer <br> 
-- react native maps <br> 
-- react native svg <br> 
-- react navigation <br>
+- [expo](https://expo.io/)
+- [expo constants](https://docs.expo.io/versions/latest/sdk/constants/)
+- [expo google fonts](https://docs.expo.io/guides/using-custom-fonts/)
+- [expo location](https://docs.expo.io/versions/latest/sdk/location/)
+- [expo mail composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
+- [react native maps](https://github.com/react-native-community/react-native-maps)
+- [react native svg](https://github.com/react-native-community/react-native-svg)
+- [react navigation](https://reactnavigation.org/)
 
