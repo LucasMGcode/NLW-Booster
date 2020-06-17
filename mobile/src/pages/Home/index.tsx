@@ -32,7 +32,10 @@ const Home = () => {
     }, []);
 
     function handNavigationToPoints() {
-      navigation.navigate('Points');
+      navigation.navigate('Points', {
+        uf,
+        city,
+      });
     }
 
     return  (
@@ -57,38 +60,37 @@ const Home = () => {
           </View>
 
           <View style={styles.footer}>
-          <TextInput 
-            style={styles.input}
-            placeholder="Digite a UF"
-            value={uf}
-            maxLength={2}
-            autoCapitalize="characters"
-            autoCorrect={false}
-            onChangeText={setUf}
-            onSubmitEditing={Keyboard.dismiss}
-          />
+            <TextInput 
+              style={styles.input}
+              placeholder="Digite a UF"
+              value={uf}
+              maxLength={2}
+              autoCapitalize="characters"
+              autoCorrect={false}
+              // onChangeText={text => setUf(text)}
+              onChangeText={setUf}
+              onSubmitEditing={Keyboard.dismiss}
+            />
 
-          <TextInput 
-            style={styles.input}
-            placeholder="Digite a cidade"
-            value={city}
-            autoCorrect={false}
-            onChangeText={setCity}
-            onSubmitEditing={Keyboard.dismiss}
-          />
+            <TextInput 
+              style={styles.input}
+              placeholder="Digite a cidade"
+              value={city}
+              autoCorrect={false}
+              // onChangeText={text => setCity(text)}
+              onChangeText={setCity}
+              onSubmitEditing={Keyboard.dismiss}
+            />
 
             <RectButton style={styles.button} onPress={handNavigationToPoints}>
-
-                <View style={styles.buttonIcon}>
-                  <Text>
-                    <Icon name="arrow-right" color="#FFF" size={24} />
-                  </Text>
-                </View>
-
-                <Text style={styles.buttonText}>
-                  Entrar
+              <View style={styles.buttonIcon}>
+                <Text>
+                  <Icon name="arrow-right" color="#FFF" size={24} />
                 </Text>
-
+              </View>
+              <Text style={styles.buttonText}>
+                Entrar
+              </Text>
             </RectButton>
           </View>
         </ImageBackground>
