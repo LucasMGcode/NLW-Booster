@@ -1,4 +1,6 @@
 import express from 'express';
+import multer from 'multer';
+import multerConfig from './config/multer';
 import PointsController from './controllers/PointsController';
 import ItemsController from './controllers/ItemsController';
 
@@ -12,14 +14,21 @@ import ItemsController from './controllers/ItemsController';
 // DELETE: Remover uma informação do back-end
 
 const routes = express.Router();
+const upload = multer(multerConfig);
+
 const pointsController = new PointsController();
 const itemsController = new ItemsController();
 
-// Rota /items
+// **** Rota /items ****
+
 routes.get('/items', itemsController.index);    //Lista todos o Items
 
-// Rota /points
-routes.post('/points', pointsController.create);    //Cria um usuário
+// **** Rota /points ****
+
+//Cria um usuário
+routes.post('/points', upload.single('image'), pointsController.create); // Recebe uma única Foto.
+// routes.post('/points', upload.array(), pointsController.create); Recebe múltiplas Fotos.
+
 routes.get('/points', pointsController.index);      //Lista usuários
 routes.get('/points/:id', pointsController.show);   //Busca usuário específico
 

@@ -43,7 +43,6 @@ const Home = () => {
           imageStyle={{ width: 274, height: 368 }}
           >
           <View 
-            // style={styles.main}
             style={
             KeyboardShow && styles ?
             {marginBottom: 32}:
@@ -52,7 +51,7 @@ const Home = () => {
           >
             <Image source={require('../../assets/logo.png')} />
             <View>
-              <Text style={styles.title}>Seup marketplace de coleta de resíduos</Text>
+              <Text style={styles.title}>Seu marketplace de coleta de resíduos</Text>
               <Text style={styles.description}>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</Text>
             </View>
           </View>
